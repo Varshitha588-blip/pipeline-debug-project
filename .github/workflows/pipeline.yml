@@ -1,6 +1,6 @@
 name: DevOps Pipeline
 
-on: push
+on: [push]
 
 jobs:
   build:
@@ -12,6 +12,9 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Run Tests
+        run: pytest
 
       - name: Build Docker
         run: docker build -t devops-demo .
